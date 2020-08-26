@@ -42,12 +42,12 @@ struct ThreadList: View {
     
     private func details(for thread: EmailThread) -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(thread.subject)
+            Text(thread.subject).fontWeight(.semibold)
             Text(thread.label)
-                .opacity(0.5)
+                .opacity(thread.read ? 0.5 : 1)
                 .font(.caption)
             Text(thread.preview)
-                .opacity(0.5)
+                .opacity(thread.read ? 0.5 : 1)
                 .font(.caption)
                 .truncationMode(.tail)
                 .lineLimit(1)

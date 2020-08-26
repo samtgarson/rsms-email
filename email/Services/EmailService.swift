@@ -27,7 +27,7 @@ class EmailService {
         ]
     }
     
-    private let customThread = EmailThread(emails: [
+    let customThread = EmailThread(emails: [
         Email(subject: "Calling the Pinball Wizard", body: """
 Hello Robin!
 
@@ -45,7 +45,7 @@ Have fun and thanks for asking!
         Email(subject: "Re: Calling the Pinball Wizard", body: """
 Robin, we're starting to set up around 9am and open at 10:30. You can park in the employee parking lot as usual if you want.
 We've got cookies and beer!
-Gimme a ring in case anything ahppens, otherwise I'll see you on Sunday morning.
+Gimme a ring in case anything happens, otherwise I'll see you on Sunday morning.
 """, receivedAt: Date(timeIntervalSinceNow: 86400 / 2), from: sam, copied: [frank])
     ])
     

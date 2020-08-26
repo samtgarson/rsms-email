@@ -22,7 +22,9 @@ struct Sidebar: View {
         VStack {
             ThreadList().frame(maxHeight: .infinity)
             ViewChooser
-        }.padding(.vertical, 10)
+        }
+        .padding(.vertical, 10)
+        .padding(.trailing, 10)
     }
     
     private var ViewChooser: some View {

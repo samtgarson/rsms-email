@@ -17,11 +17,12 @@ struct ContentView: View {
     }
  
     var body: some View {
+        // This should be a navigation view
+        // but in the name of time...
         HStack {
             Sidebar()
                 .frame(width: 300)
-            DetailView()
-                .frame(maxWidth: .infinity)
+            ThreadViewer(thread: EmailService().customThread)
         }
         
     }
