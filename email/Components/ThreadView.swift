@@ -30,14 +30,16 @@ struct ThreadView: View {
                 .padding(.top, 10)
             ScrollView {
                 ScrollViewReader { sp in
-                    ForEach(thread.emails, id: \.self) { EmailView(email: $0) }
+                    ForEach(thread.emails, id: \.self) { EmailView(email: $0, color: thread.color(for: $0.from)) }
                     Divider()
-                    ReplyBox()
-                        .id("replyBox")
-                        .frame(maxHeight: .infinity)
-                        .onReceive(settings.$replyFocused) { focused in
-                            if focused { sp.scrollTo("replyBox", anchor: .bottom) }
-                        }
+                    ReplyBox() { body in
+                        self.thread.send(body)
+                    }
+                    .id("replyBox")
+                    .frame(maxHeight: .infinity)
+                    .onReceive(settings.$replyFocused) { focused in
+                        if focused { sp.scrollTo("replyBox", anchor: .bottom) }
+                    }
                 }
             }
         }
@@ -60,7 +62,7 @@ struct ThreadView: View {
     
     private func row(for user: User) -> some View {
         HStack {
-            Circle().fill(Color.black).frame(width: 30, height: 30)
+            Circle().fill(thread.color(for: user)).frame(width: 30, height: 30)
             VStack(alignment: .leading, spacing: 3) {
                 Text(user.name)
                 Text(user.email)

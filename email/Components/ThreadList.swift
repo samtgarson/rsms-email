@@ -17,7 +17,7 @@ struct ThreadList: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            LazyVStack(alignment: .leading, spacing: 20) {
                 ForEach(threads, id: \.self) { thread in
                     self.row(for: thread)
                 }
@@ -36,7 +36,7 @@ struct ThreadList: View {
     private func icon(for thread: EmailThread) -> some View {
         RoundedRectangle(cornerRadius: 8)
             .fill(Color.blue)
-            .frame(width: 8, height: 8)
+            .frame(width: 8, height: thread.selected ? 50 : 8)
             .opacity(thread.read ? 0 : 1)
     }
     

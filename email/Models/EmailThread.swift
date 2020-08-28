@@ -7,8 +7,20 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct EmailThread: Hashable {
+class EmailThread: Identifiable {
+    private let userColors: [Color] = [.red, .green, .purple]
+    
+    internal init(emails: [Email], selected: Bool = false) {
+        self.emails = emails
+        self.id = UUID().uuidString
+        self.selected = selected
+    }
+    
+    var id: String
+    var selected: Bool
+    
     var emails: [Email]
     
     var subject: String {
@@ -23,7 +35,7 @@ struct EmailThread: Hashable {
         var users = Set(emails.map { $0.from })
         users.remove(currentUser)
         
-        return Array(users)
+        return Array(users.sorted(by: { $0.name > $1.name }))
     }
     
     var lastReceived: Date {
@@ -41,5 +53,27 @@ struct EmailThread: Hashable {
         let date = formatter.string(from: lastReceived)
         
         return "\(names) at \(date)"
+    }
+    
+    func send(_ body: String) {
+        emails.append(Email(subject: "Re: \(subject)", body: body, receivedAt: Date(), from: currentUser))
+    }
+    
+    func color(for user: User) -> Color {
+        if user == currentUser { return Color.black }
+        
+        let index = users.firstIndex(of: user) ?? 0
+        
+        return userColors[index % userColors.count]
+    }
+}
+
+extension EmailThread: Hashable {
+    static func == (lhs: EmailThread, rhs: EmailThread) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
     }
 }

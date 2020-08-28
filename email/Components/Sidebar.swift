@@ -17,19 +17,27 @@ enum Views: String, CaseIterable, Identifiable {
 
 struct Sidebar: View {
     @State private var selectedView: Views = .inbox
+    @EnvironmentObject private var settings: ViewSettings
     
     var body: some View {
         VStack {
-            ThreadList().frame(maxHeight: .infinity)
+            ThreadList()
+                .frame(maxHeight: .infinity)
+                .opacity(opacity)
             ViewChooser
         }
         .padding(.vertical, 10)
         .padding(.trailing, 10)
     }
     
+    private var opacity: Double {
+        withAnimation {
+            return settings.replyFocused ? 0.2 : 1
+        }
+    }
     private var ViewChooser: some View {
         HStack {
-            Text("View: Inbox")
+            Text("View: Inbox").fontWeight(.semibold)
             Spacer()
             Image(systemName: "chevron.up.chevron.down")
         }

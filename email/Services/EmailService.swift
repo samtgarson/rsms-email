@@ -47,7 +47,7 @@ Robin, we're starting to set up around 9am and open at 10:30. You can park in th
 We've got cookies and beer!
 Gimme a ring in case anything happens, otherwise I'll see you on Sunday morning.
 """, receivedAt: Date(timeIntervalSinceNow: 86400 / 2), from: sam, copied: [frank])
-    ])
+    ], selected: true)
     
     private func defaultThread (read: Bool = true) -> EmailThread {
         EmailThread(emails: [

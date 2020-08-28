@@ -22,8 +22,10 @@
 		2228F60024F657DE00F46504 /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2228F5FF24F657DE00F46504 /* EmailService.swift */; };
 		2228F60324F662F500F46504 /* ThreadList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2228F60224F662F500F46504 /* ThreadList.swift */; };
 		22A6A1F724F676D800510529 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6A1F624F676D800510529 /* Sidebar.swift */; };
-		22A6A1F924F6926B00510529 /* ThreadViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6A1F824F6926B00510529 /* ThreadViewer.swift */; };
+		22A6A1F924F6926B00510529 /* ThreadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6A1F824F6926B00510529 /* ThreadView.swift */; };
 		22A6A1FB24F6977800510529 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6A1FA24F6977800510529 /* EmailView.swift */; };
+		22A6A1FD24F6A1C600510529 /* ReplyBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6A1FC24F6A1C600510529 /* ReplyBox.swift */; };
+		22CE9A2024F7CB4D0071639B /* PrettyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE9A1F24F7CB4D0071639B /* PrettyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +58,10 @@
 		2228F5FF24F657DE00F46504 /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
 		2228F60224F662F500F46504 /* ThreadList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadList.swift; sourceTree = "<group>"; };
 		22A6A1F624F676D800510529 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
-		22A6A1F824F6926B00510529 /* ThreadViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadViewer.swift; sourceTree = "<group>"; };
+		22A6A1F824F6926B00510529 /* ThreadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadView.swift; sourceTree = "<group>"; };
 		22A6A1FA24F6977800510529 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		22A6A1FC24F6A1C600510529 /* ReplyBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyBox.swift; sourceTree = "<group>"; };
+		22CE9A1F24F7CB4D0071639B /* PrettyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrettyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 				2228F5F824F653BC00F46504 /* Email.swift */,
 				2228F5FA24F6542600F46504 /* User.swift */,
 				2228F5FC24F6551D00F46504 /* EmailThread.swift */,
+				22CE9A1F24F7CB4D0071639B /* PrettyButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,8 +160,9 @@
 			children = (
 				2228F60224F662F500F46504 /* ThreadList.swift */,
 				22A6A1F624F676D800510529 /* Sidebar.swift */,
-				22A6A1F824F6926B00510529 /* ThreadViewer.swift */,
+				22A6A1F824F6926B00510529 /* ThreadView.swift */,
 				22A6A1FA24F6977800510529 /* EmailView.swift */,
+				22A6A1FC24F6A1C600510529 /* ReplyBox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -206,7 +212,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Sam Garson";
 				TargetAttributes = {
 					2228F5CC24F652A700F46504 = {
@@ -274,7 +280,9 @@
 				22A6A1F724F676D800510529 /* Sidebar.swift in Sources */,
 				2228F5FD24F6551D00F46504 /* EmailThread.swift in Sources */,
 				2228F60324F662F500F46504 /* ThreadList.swift in Sources */,
-				22A6A1F924F6926B00510529 /* ThreadViewer.swift in Sources */,
+				22A6A1FD24F6A1C600510529 /* ReplyBox.swift in Sources */,
+				22CE9A2024F7CB4D0071639B /* PrettyButton.swift in Sources */,
+				22A6A1F924F6926B00510529 /* ThreadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +342,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -358,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -394,6 +403,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -412,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

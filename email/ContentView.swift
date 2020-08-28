@@ -10,7 +10,13 @@ import SwiftUI
 
 let currentUser = User(name: "Robin Hood", email: "robin@gmail.com")
 
+class ViewSettings: ObservableObject {
+    @Published var replyFocused = false
+}
+
 struct ContentView: View {
+    var settings = ViewSettings()
+    
     init() {
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().backgroundColor = .white
@@ -22,8 +28,8 @@ struct ContentView: View {
         HStack {
             Sidebar()
                 .frame(width: 300)
-            ThreadViewer(thread: EmailService().customThread)
-        }
+            ThreadView(thread: EmailService().customThread)
+        }.environmentObject(settings)
         
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct EmailView: View {
     var email: Email
+    let color: Color
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -22,7 +23,7 @@ struct EmailView: View {
     
     private var meta: some View {
         HStack(spacing: 10) {
-            Circle().fill(Color.black).frame(width: 10, height: 10)
+            Circle().fill(color).frame(width: 10, height: 10)
             HStack(spacing: 0) {
                 name
                 Text(", ")
@@ -48,6 +49,6 @@ struct EmailView: View {
 
 struct EmailView_Previews: PreviewProvider {
     static var previews: some View {
-        EmailView(email: EmailService().customThread.emails.first!)
+        EmailView(email: EmailService().customThread.emails.first!, color: Color.red)
     }
 }
